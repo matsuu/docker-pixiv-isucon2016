@@ -121,6 +121,6 @@ Docker実行環境のスペックが足りないのかもしれません。
 
 ## References
 
-* [matsuu/vagrant-pixiv-isucon2016](https://github.com/matsuu/vagrant-pixiv-isucon2016]
-* [matsuu/terraform-pixiv-isucon2016](https://github.com/matsuu/terraform-pixiv-isucon2016]
-* [matsuu/docker-isucon](https://github.com/matsuu/docker-isucon]
+* [matsuu/vagrant-pixiv-isucon2016](https://github.com/matsuu/vagrant-pixiv-isucon2016)
+* [matsuu/terraform-pixiv-isucon2016](https://github.com/matsuu/terraform-pixiv-isucon2016)
+* [matsuu/docker-isucon](https://github.com/matsuu/docker-isucon)
