@@ -1,0 +1,13 @@
+version: '2'
+services:
+  bench:
+    build: ./bench
+    image: matsuu/pixiv-isucon2016-bench
+    command: ["-t", "http://image/"]
+    network_mode: "service:image"
+  image:
+    build: ./image
+    image: matsuu/pixiv-isucon2016-image
+    ports:
+      - "80:80"
+    privileged: true
