@@ -15,6 +15,7 @@ RUN \
   groupadd wheel && \
   useradd -G wheel isucon -s /bin/bash && \
   git clone https://github.com/catatsuy/private-isu.git /home/isucon/repos/private_isu.git && \
+  git clone https://github.com/methane/pixiv-isucon2016-python /home/isucon/repos/private_isu.git/webapp/python && \
   cp /home/isucon/repos/private_isu.git/provisioning/image/files/etc/profile.d/bashrc /home/isucon/.profile && \
   chown isucon:isucon /home/isucon/.profile && \
   chmod +x /home/isucon/.profile && \
@@ -32,13 +33,15 @@ RUN \
   cp /home/isucon/repos/private_isu.git/provisioning/image/files/etc/php/7.0/fpm/pool.d/www.conf /etc/php/7.0/fpm/pool.d/www.conf && \
   cp /home/isucon/repos/private_isu.git/provisioning/image/files/etc/systemd/system/* /etc/systemd/system/ && \
   systemctl enable isu-ruby && \
-  rm -r /home/isucon/repos/private_isu.git/.git && \
-  rm -r /home/isucon/repos/private_isu.git/ansible && \
-  rm -r /home/isucon/repos/private_isu.git/benchmarker && \
-  rm -r /home/isucon/repos/private_isu.git/e2etest && \
-  rm -r /home/isucon/repos/private_isu.git/portal && \
-  rm -r /home/isucon/repos/private_isu.git/provisioning && \
-  rm /home/isucon/repos/private_isu.git/README.md && \
+  rm -r \
+    /home/isucon/repos/private_isu.git/.git \
+    /home/isucon/repos/private_isu.git/ansible \
+    /home/isucon/repos/private_isu.git/benchmarker \
+    /home/isucon/repos/private_isu.git/e2etest \
+    /home/isucon/repos/private_isu.git/portal \
+    /home/isucon/repos/private_isu.git/provisioning \
+    /home/isucon/repos/private_isu.git/README.md \
+    /home/isucon/repos/private_isu.git/webapp/python/.git && \
   ( cd /home/isucon/repos/private_isu.git/ && git init && git add . && git config --global user.email 'test@example.com' && git config --global user.name 'admin' && git commit -m 'Initial commit' ) && \
   git clone file:///home/isucon/repos/private_isu.git /home/isucon/private_isu && \
   mkdir /home/isucon/backup/ && \
@@ -56,7 +59,12 @@ RUN \
   sudo -u isucon -i sh -c "cd /home/isucon/private_isu/webapp/golang && ./setup.sh" && \
   sudo -u isucon -i curl -sL -o /home/isucon/private_isu/webapp/php/composer.phar http://getcomposer.org/composer.phar && \
   chmod +x /home/isucon/private_isu/webapp/php/composer.phar && \
-  sudo -u isucon -i sh -c "cd /home/isucon/private_isu/webapp/php && ./composer.phar install"
+  sudo -u isucon -i sh -c "cd /home/isucon/private_isu/webapp/php && ./composer.phar install" && \
+  sudo -u isucon -i /home/isucon/.xbuild/python-install 3.5.2 /home/isucon/.local/python3 && \
+  sudo -u isucon -i sh -c "cd /home/isucon/private_isu/webapp/python && pip install -r requirements.freeze" && \
+  rm -r /var/lib/apt/lists/*
+
+COPY isu-python.service /etc/systemd/system/
 
 EXPOSE 80
 
