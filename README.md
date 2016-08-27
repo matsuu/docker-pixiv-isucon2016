@@ -99,6 +99,7 @@ Docker for Windowsでも動作するかもしれませんが未確認です。
 * 本来の競技者用サーバーはc4.large(vCPU 2, メモリ3.75GB)ですが、特に制限は行っておりません
 * 本来のベンチマーカーはc4.xlarge(vCPU 4, メモリ7.5GB)ですが、特に制限は行っておりません
 * 競技者用サーバーでsshdが起動していませんので必要に応じて起動してください
+* 容量削減のため/home/isucon/backupは削除しています
 * [Python実装](https://github.com/methane/pixiv-isucon2016-python)を追加しました
 
 ## FAQ

@@ -62,7 +62,7 @@ RUN \
   sudo -u isucon -i sh -c "cd /home/isucon/private_isu/webapp/php && ./composer.phar install" && \
   sudo -u isucon -i /home/isucon/.xbuild/python-install 3.5.2 /home/isucon/.local/python3 && \
   sudo -u isucon -i sh -c "cd /home/isucon/private_isu/webapp/python && pip install -r requirements.freeze" && \
-  rm -r /var/lib/apt/lists/*
+  rm -r /var/lib/apt/lists/* /home/isucon/backup
 
 COPY isu-python.service /etc/systemd/system/
 
