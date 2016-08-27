@@ -119,9 +119,16 @@ Docker実行環境のスペックが足りないのかもしれません。
 * Docker Swarm対応
 * もっとモダンに
 * リファクタリング
+* 容量削減
+    * AlpineLinux化?
 
 ## References
 
+* [ISUCON6出題チームが社内ISUCONを開催！AMIも公開！！ - pixiv inside](http://inside.pixiv.net/entry/2016/05/18/115206)
+* [catatsuy/private-isu](https://github.com/catatsuy/private-isu)
+* [社内ISUCON 当日マニュアル](https://github.com/catatsuy/private-isu/blob/master/manual.md)
+* [pixiv private isucon 2016 Python 版実装を用意しました](http://dsas.blog.klab.org/archives/pixiv-isucon2016-python.html)
+* [ISUCON公式](http://isucon.net/)
 * [matsuu/vagrant-pixiv-isucon2016](https://github.com/matsuu/vagrant-pixiv-isucon2016)
 * [matsuu/terraform-pixiv-isucon2016](https://github.com/matsuu/terraform-pixiv-isucon2016)
 * [matsuu/docker-isucon](https://github.com/matsuu/docker-isucon)
