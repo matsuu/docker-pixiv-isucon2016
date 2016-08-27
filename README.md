@@ -40,7 +40,7 @@ docker-compose up bench
 サーバログイン
 
 ```
-docker-compose exec image bash
+docker-compose exec --user isucon image bash
 ```
 
 サーバ停止
@@ -79,7 +79,7 @@ docker run -it --rm --network=container:image matsuu/pixiv-isucon2016-bench -t h
 サーバログイン
 
 ```
-docker exec -it image bash
+docker exec -it --user isucon image bash
 ```
 
 サーバ停止
